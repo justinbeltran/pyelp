@@ -8,9 +8,9 @@ Simple Python wrapper surrounding Yelp v2 API. See http://www.yelp.com/developer
 from pyelp.pyelp import Pyelp
 
 pyelp = Pyelp(consumer_key='consumer_key',
-					       consumer_secret='consumer_secret',
-					       token='token',
-					       token_secret='token_secret')
+              consumer_secret='consumer_secret',
+              token='token',
+              token_secret='token_secret')
 
 # Search API (JSON returned as a dictionary)
 results = pyelp.search(params={'term': 'sushi', 'location': 'Irvine, CA'})

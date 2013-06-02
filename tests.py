@@ -7,36 +7,36 @@ from pyelp.pyelp import Pyelp
 
 class PyelpTests(unittest.TestCase):
 
-	def setUp(self):
-		self.pyelp = Pyelp(consumer_key='consumer_key',
-					       consumer_secret='consumer_secret',
-					       token='token',
-					       token_secret='token_secret')
+    def setUp(self):
+        self.pyelp = Pyelp(consumer_key='consumer_key',
+                           consumer_secret='consumer_secret',
+                           token='token',
+                           token_secret='token_secret')
 
-	def test_search(self):
-		search_json = None
-		with open('search.json') as fp:
-			search_json = fp.read()
-			
-		resp = Mock()
-		resp.content = search_json
-		requests.get = Mock(return_value=resp)
+    def test_search(self):
+        search_json = None
+        with open('search.json') as fp:
+            search_json = fp.read()
 
-		results =  self.pyelp.search(params={'term': 'sushi', 'location': 'Irvine, CA'})
-		self.assertEqual(results['total'], 185)
+        resp = Mock()
+        resp.content = search_json
+        requests.get = Mock(return_value=resp)
 
-	def test_business(self):
-		business_json = None
-		with open('business.json') as fp:
-			business_json = fp.read()
+        results =  self.pyelp.search(params={'term': 'sushi', 'location': 'Irvine, CA'})
+        self.assertEqual(results['total'], 185)
 
-		resp = Mock()
-		resp.content = business_json
-		requests.get = Mock(return_value=resp)
+    def test_business(self):
+        business_json = None
+        with open('business.json') as fp:
+            business_json = fp.read()
 
-		returned_business = self.pyelp.business('yelp-san-francisco')
-		self.assertEqual(returned_business['name'], 'Yelp')
-		self.assertEqual(returned_business['rating'], 3)
+        resp = Mock()
+        resp.content = business_json
+        requests.get = Mock(return_value=resp)
+
+        returned_business = self.pyelp.business('yelp-san-francisco')
+        self.assertEqual(returned_business['name'], 'Yelp')
+        self.assertEqual(returned_business['rating'], 3)
 
 if __name__ == "__main__":
-	unittest.main()
+    unittest.main()

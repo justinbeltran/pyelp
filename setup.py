@@ -22,7 +22,7 @@ setup(
     name='pyelp',
     version=1.0
     description='Python Wrapper for Yelp API',
- 	author='Justin Beltran',
+    author='Justin Beltran',
     packages=packages,
-	package_dir={'pyelp': 'pyelp'}
+    package_dir={'pyelp': 'pyelp'}
 )
