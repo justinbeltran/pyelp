@@ -1,6 +1,8 @@
 pyelp
 =====
 
+[![Build Status](https://secure.travis-ci.org/justinbeltran/pyelp.png)](http://travis-ci.org/justinbeltran/pyelp)
+
 Simple Python wrapper surrounding Yelp v2 API. See http://www.yelp.com/developers/documentation/v2/overview for more details on query params, responses, etc.
 
 ```python
